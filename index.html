@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <title>Весы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .privet {
+            padding: 24px;
+            text-align: center;
+            font-size: 16px;
+            font-family: Ubuntu;
+            font-weight: 500;
+            color: white;
+            background-color: royalblue;
+        }
+        .weight {
+            width: 100%;
+            text-align: center;
+            background-color: #6a8af3;
+            padding: 48px;
+            font-size: 36px;
+            font-family: Electrolize;
+            color: white;
+        }
+        .wtitle {
+            font-size: 18px;
+            font-weight: 300;
+            font-family: Ubuntu;
+            margin-bottom: 12px;
+        }
+        body {
+            background-color: #beccff;
+        }
+        .press {
+            position: absolute;
+            left: 0;
+            bottom:0;
+            padding: 36px;
+            margin: 60px;
+            max-width: calc(100% - 120px);
+            width: 100%;
+            border: 3px solid royalblue;
+            background-color: #6a8af3;
+            color: white;
+            font-family: Ubuntu;
+            font-weight: 500;
+            font-size: 40px;
+        }
+        .press:hover {
+            background-color: #5878e7;
+        }
+        .noselect {
+              -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                 -khtml-user-select: none; /* Konqueror HTML */
+                   -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                        user-select: none; /* Non-prefixed version, currently
+                                              supported by Chrome, Edge, Opera and Firefox */
+        }
+    </style>
+</head>
+<body class="noselect">
+    <div class="privet">Это электронные весы, они по отпечатку твоей лапки показывают твой вес!</div>
+    <div class="weight">
+        <p class="wtitle">Ваш вес (КГ):</p>
+        <p id="wam">00</p>
+    </div>
+    <button class="press" id="pressbtn" type="submit">
+        ЖМЯКАЙ ЛАПКОЙ
+    </button>
+</body>
+<script>
+    let intvl;
+    document.getElementById("pressbtn").addEventListener("click", () => {
+        intvl = setInterval(() => {
+            if (parseInt(document.getElementById("wam").innerText) < 45) {
+                document.getElementById("wam").innerText = parseInt(document.getElementById("wam").innerText) + 1;
+            }
+        }, 0.5)
+        document.getElementById("wam").style.fontSize = "55px";
+    })
+</script>
+</html>
