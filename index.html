@@ -70,6 +70,13 @@
                                               supported by Chrome, Edge, Opera and Firefox */
         }
     </style>
+    <script>
+        let wei = window.location.hash.replace("#", "").split("&");
+        let maxw = 45;
+        wei.forEach((a) => {
+            if(a.split("=")[0] == "l") { maxw = parseInt(a.split("=")[1]); }
+        })
+    </script>
 </head>
 <body class="noselect">
     <div class="privet">Это электронные весы, они по отпечатку твоей лапки показывают твой вес!</div>
@@ -85,7 +92,7 @@
     let intvl;
     document.getElementById("pressbtn").addEventListener("click", () => {
         intvl = setInterval(() => {
-            if (parseInt(document.getElementById("wam").innerText) < 45) {
+            if (parseInt(document.getElementById("wam").innerText) < maxw) {
                 document.getElementById("wam").innerText = parseInt(document.getElementById("wam").innerText) + 1;
             }
         }, 0.5)
